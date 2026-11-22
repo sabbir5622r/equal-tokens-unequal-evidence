@@ -6,7 +6,7 @@ models:
     revision: aa8e72537993ba99e69dfaafa59ed015b17504d1
     tokenizer_revision: aa8e72537993ba99e69dfaafa59ed015b17504d1
     precision: float16
-    context: 32768
+    context: 8192
   gemma:
     id: google/gemma-3-4b-it
     revision: 093f9f388b31de276ce2de164bdc2081324b9767
