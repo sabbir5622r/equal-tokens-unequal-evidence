@@ -1,0 +1,72 @@
+seed: 42
+languages: [eng_Latn, ben_Beng, hin_Deva, urd_Arab, npi_Deva, sin_Sinh, pbt_Arab, tam_Taml]
+models:
+  qwen:
+    id: Qwen/Qwen2.5-3B-Instruct
+    revision: aa8e72537993ba99e69dfaafa59ed015b17504d1
+    tokenizer_revision: aa8e72537993ba99e69dfaafa59ed015b17504d1
+    precision: float16
+    context: 32768
+  gemma:
+    id: google/gemma-3-4b-it
+    revision: 093f9f388b31de276ce2de164bdc2081324b9767
+    tokenizer_revision: 093f9f388b31de276ce2de164bdc2081324b9767
+    precision: float16
+    context: 131072
+  aya:
+    id: CohereLabs/aya-expanse-8b
+    revision: 5062468bf9bc0c6035fd64e06274333ec127d980
+    tokenizer_revision: 5062468bf9bc0c6035fd64e06274333ec127d980
+    precision: float16
+    context: 8192
+retriever:
+  id: BAAI/bge-m3
+  revision: 5617a9f61b028005a4858fdac845db406aefb181
+belebele_revision: 7899cdfa4e1e0d733fd77c848e2c273cb1d32be2
+tydi_revision: da78f23f9119363459acbaf46bf89426ff26c259
+budgets:
+  belebele: [512, 1024, 2048, 4096]
+  mlqa: [128, 192, 256, 384, 512]
+  tydi: [96, 128, 192, 256, 384]
+diagnostic_budget: 2048
+matched_budget: 4096
+position_budget: 6144
+position_distractors: 4
+natural_diagnostic_budget:
+  mlqa: 256
+  tydi: 192
+output_tokens:
+  belebele: 6
+  mlqa: 96
+  tydi: 96
+max_candidates: 12
+bootstrap_draws: 2000
+profiles:
+  smoke:
+    belebele: 3
+    mlqa: 3
+    tydi: 3
+    diagnostic_limit: 2
+    order_replication_limit: 2
+    orders: [42]
+  pilot:
+    belebele: 60
+    mlqa: 40
+    tydi: 40
+    diagnostic_limit: 30
+    order_replication_limit: 12
+    orders: [42, 43]
+  minimum:
+    belebele: 360
+    mlqa: 300
+    tydi: 250
+    diagnostic_limit: 100
+    order_replication_limit: 35
+    orders: [42, 43]
+  expanded:
+    belebele: 900
+    mlqa: 800
+    tydi: 500
+    diagnostic_limit: 225
+    order_replication_limit: 100
+    orders: [42, 43, 44]
